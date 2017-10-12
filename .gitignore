@@ -155,3 +155,7 @@ fabric.properties
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+.vscode
+.idea
+.DS_Store
