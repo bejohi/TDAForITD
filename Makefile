@@ -4,4 +4,4 @@ run:
 test:
 	python3 -m unittest discover -s . -p '*_test.py'
 
-release: test
+release: test run
