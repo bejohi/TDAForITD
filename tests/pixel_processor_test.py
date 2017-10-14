@@ -16,21 +16,30 @@ class PixelProcessorTest(unittest.TestCase, TestBase):
 
     def test_lbp_pattern_y_at_border_throes_error(self):
         try:
+            # ACT
             self.pixel_processor.calculate_local_binary_pattern(10, 0)
+
+            # ASSERT
             self.assertTrue(False, "No IndexError thrown")
         except IndexError:
             pass
 
     def test_lbp_pattern_x_at_border_throes_error(self):
         try:
+            # ACT
             self.pixel_processor.calculate_local_binary_pattern(0, 10)
+
+            # ASSERT
             self.assertTrue(False, "No IndexError thrown")
         except IndexError:
             pass
 
     def test_lbp_pattern_xy_at_border_throes_error(self):
         try:
+            # ACT
             self.pixel_processor.calculate_local_binary_pattern(self.image_info.width-1, self.image_info.height-1)
+
+            # ASSERT
             self.assertTrue(False, "No IndexError thrown")
         except IndexError:
             pass
