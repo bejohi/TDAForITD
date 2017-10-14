@@ -1,10 +1,10 @@
 import os
 
-from scripts.image_handling.image_information import ImageInfo
-from scripts.image_handling.pixel_processor import PixelProcessor
+from image_handling.image_information import ImageInfo
+from image_handling.pixel_processor import PixelProcessor
 
 if __name__ == "__main__":
-    image_path = os.path.join("../../data_storage/images/example_image_davinci.png")
+    image_path = os.path.join(os.getcwd(),"data_storage/images/example_image_davinci.png")
     image_processor = ImageInfo(image_path)
     print(image_processor.width)
     print(image_processor.height)
