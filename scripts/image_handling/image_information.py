@@ -2,7 +2,7 @@ import math
 from PIL import Image
 
 
-class ImageProcessor:
+class ImageInfo:
     """ Stores one image and provides processing operations on it"""
 
     def __init__(self, image_path=None):

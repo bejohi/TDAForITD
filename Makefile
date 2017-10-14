@@ -13,7 +13,7 @@ install-requirements:
 
 # Starts the application
 run:
-	python3 scripts/main/main.py
+	python3 scripts/main.py
 
 # Runs all unit tests
 test:

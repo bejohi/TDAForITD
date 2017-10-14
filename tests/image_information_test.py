@@ -1,21 +1,17 @@
-import os
 import traceback
 import unittest
 
-from scripts.image_processing.image_processing import ImageProcessor
+from scripts.image_handling.image_information import ImageInfo
+from tests.test_base import TestBase
 
 
-class ImageProcessorTest(unittest.TestCase):
+class ImageInfoTest(unittest.TestCase, TestBase):
     """Tests the ImageProcessor with a real example image."""
-    EXAMPLE_IMAGE_PATH = os.path.join("data_storage/images/example_image_davinci.png")
-    EXAMPLE_IMAGE_WIDTH = 800
-    EXAMPLE_IMAGE_HEIGHT = 800
-    EXAMPLE_IMAGE_BRIGHTNESS_IN_POINT_0_0 = 178
 
     def test_image_load_with_correct_path_should_not_throw_error(self):
         try:
             # ARRANGE
-            image_processor = ImageProcessor()
+            image_processor = ImageInfo()
 
             # ACT
             image_processor.load_image(self.EXAMPLE_IMAGE_PATH)
@@ -28,7 +24,7 @@ class ImageProcessorTest(unittest.TestCase):
     def test_image_load_with_wrong_path_should_throw_error(self):
         try:
             # ARRANGE
-            image_processor = ImageProcessor()
+            image_processor = ImageInfo()
 
             # ACT
             image_processor.load_image(" ")
@@ -37,40 +33,25 @@ class ImageProcessorTest(unittest.TestCase):
             self.assertTrue(True)
 
     def test_image_width(self):
-        # ARRANGE & ACT
-        image_processor = ImageProcessor(self.EXAMPLE_IMAGE_PATH)
-
         # ASSERT
-        self.assertEqual(image_processor.width, self.EXAMPLE_IMAGE_WIDTH)
+        self.assertEqual(self.image_info.width, self.EXAMPLE_IMAGE_WIDTH)
 
     def test_image_height(self):
-        # ARRANGE & ACT
-        image_processor = ImageProcessor(self.EXAMPLE_IMAGE_PATH)
-
         # ASSERT
-        self.assertEqual(image_processor.height, self.EXAMPLE_IMAGE_HEIGHT)
+        self.assertEqual(self.image_info.height, self.EXAMPLE_IMAGE_HEIGHT)
 
     def test_image_pixels_minimum_throws_no_error(self):
-        # ARRANGE & ACT
-        image_processor = ImageProcessor(self.EXAMPLE_IMAGE_PATH)
-
         # ASSERT
-        image_processor.pixels[0, 0]  # Should not throw an exception
+        self.image_info.pixels[0, 0]  # Should not throw an exception
 
     def test_image_pixels_maximum_throws_no_error(self):
-        # ARRANGE & ACT
-        image_processor = ImageProcessor(self.EXAMPLE_IMAGE_PATH)
-
         # ASSERT
-        image_processor.pixels[
+        self.image_info.pixels[
             self.EXAMPLE_IMAGE_HEIGHT - 1, self.EXAMPLE_IMAGE_WIDTH - 1]  # Should not throw an exception
 
     def test_image_brightness(self):
-        # ARRANGE
-        image_processor = ImageProcessor(self.EXAMPLE_IMAGE_PATH)
-
         # ACT
-        brightness = int(image_processor.get_brightness_of_pixel(0, 0))
+        brightness = int(self.image_info.get_brightness_of_pixel(0, 0))
 
         # ASSERT
         self.assertEqual(brightness, self.EXAMPLE_IMAGE_BRIGHTNESS_IN_POINT_0_0)
