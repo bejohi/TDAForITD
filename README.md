@@ -10,6 +10,6 @@ It is not necessary to use this MAKEFILE but nevertheless it is much easier to d
 the make tool should be integrated in your terminal. On Windows hosts you have to install the GNU Tools first.
 
 ## Authors
-* Philip
+* Philip Wiegratz
 * Jasper Ben
 * Jonas Hielscher

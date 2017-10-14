@@ -7,3 +7,4 @@ if __name__ == "__main__":
     image_processor = ImageProcessor(image_path)
     print(image_processor.width)
     print(image_processor.height)
+    print(image_processor.pixels[10, 10])

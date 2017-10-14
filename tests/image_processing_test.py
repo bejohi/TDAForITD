@@ -49,6 +49,21 @@ class ImageProcessorTest(unittest.TestCase):
         # ASSERT
         self.assertEqual(image_processor.height, self.EXAMPLE_IMAGE_HEIGHT)
 
+    def test_picture_pixels_minimum_throws_no_error(self):
+        # ARRANGE & ACT
+        image_processor = ImageProcessor(self.example_image_path)
+
+        # ASSERT
+        image_processor.pixels[0, 0]  # Should not throw an exception
+
+    def test_picture_pixels_maximum_throws_no_error(self):
+        # ARRANGE & ACT
+        image_processor = ImageProcessor(self.example_image_path)
+
+        # ASSERT
+        image_processor.pixels[
+            self.EXAMPLE_IMAGE_HEIGHT - 1, self.EXAMPLE_IMAGE_WIDTH - 1]  # Should not throw an exception
+
 
 if __name__ == "__main__":
     unittest.main()
