@@ -11,5 +11,5 @@ the make tool should be integrated in your terminal. On Windows hosts you have t
 
 ## Authors
 * Philip Wiegratz
-* Jasper Ben
+* Jasper Ben Orschulko
 * Jonas Hielscher
