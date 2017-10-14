@@ -1,1 +1,1 @@
-PIL
+PIL (pip install Pillow)
