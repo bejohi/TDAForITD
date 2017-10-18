@@ -7,8 +7,7 @@ class PixelProcessor:
     def calculate_local_binary_pattern(self, x, y):
         """Calculates the local binary pattern for a pixel with the given coordinates (x,y)."""
         if not self.__coordinates_in_range(x, y):
-            raise IndexError(
-                "The coordinates (" + str(x) + "," + str(y) + ") are out of range, or directly at the border")
+            return list()
 
         lbp_list = list()
         coordinate_pattern = self.__get_lbp_list_pattern()
@@ -20,6 +19,17 @@ class PixelProcessor:
             lbp_list.append(lbp_value)
 
         return lbp_list
+
+    # TODO [bejohi] Rename and document this method. AND UNITTEST IT!
+    def check_if_lbp_is_morph_relevant(self, lbp_list):
+        sum = 0
+        for lbp_value in lbp_list:
+            sum += lbp_value
+
+        if sum == 2:
+            return True
+        else:
+            return False
 
     def __coordinates_in_range(self, x, y):
         """Checks if the given coordinates are in range for processing
