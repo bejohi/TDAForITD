@@ -1,5 +1,5 @@
 class PixelProcessor:
-    """Provides methods to calculate information about single pixels in an given image and about its neighbors"""
+    """Provides methods to calculate information about single pixels and its neighbors in an given image"""
 
     def __init__(self, image_info):
         self.image_info = image_info

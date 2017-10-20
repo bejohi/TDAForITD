@@ -2,11 +2,11 @@ import math
 
 from PIL import Image
 
-from scripts.image_handling.image_matrix import ImageMatrix
-from scripts.image_handling.pixel_processor import PixelProcessor
+from image_handling.image_matrix import ImageMatrix
+from image_handling.pixel_processor import PixelProcessor
 
 
-class PixcelProcessor(object):
+class PixselProcessor(object):
     pass
 
 

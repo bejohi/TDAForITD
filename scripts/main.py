@@ -1,5 +1,6 @@
 import os
-
+#for path in os.environ['PYTHONPATH'].split(os.pathsep):
+#    print(str(path))
 import matplotlib
 import matplotlib.cbook as cbook
 import matplotlib.pyplot as plt
@@ -9,7 +10,7 @@ from image_handling.image_information import ImageInfo
 if __name__ == "__main__":
     """For experimental purpose only."""
     matplotlib.rcParams["examples.directory"] = os.getcwd()
-    image_path = "../data_storage/images/example_image_davinci.png"
+    image_path = "data_storage/images/example_image_davinci.png"
     datafile = cbook.get_sample_data(image_path)
     image_info = ImageInfo(image_path)
 
