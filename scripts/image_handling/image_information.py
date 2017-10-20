@@ -6,11 +6,7 @@ from image_handling.image_matrix import ImageMatrix
 from image_handling.pixel_processor import PixelProcessor
 
 
-<<<<<<< HEAD
 class PixselProcessor(object):
-=======
-class PixelProcessor(object):
->>>>>>> 86812a1ded7200ea8185a7f37d67f11d4d6d99cf
     pass
 
 
