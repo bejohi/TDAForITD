@@ -54,6 +54,8 @@ def calculate_lbp_pattern_for_complete_image(brightness_matrix: list):
     """Creates a complete new 2D Matrix out of a given brightness matrix. The new matrix contains the lbp pattern for
     every pixel, expect the once at the direct border """
     height = len(brightness_matrix)
+    if height is 0:
+        return []
     width = len(brightness_matrix[0])
     lbp_pattern_matrix = __init_2d_matrix_with_none(width, height)
 
@@ -104,7 +106,7 @@ def get_image_lbp_matrix(image_path):
 
 
 def __init_2d_matrix_with_none(width: int, height: int):
-    """Initializes a 2d matrix with the value None"""
+    """Initializes a 2d matrix with the value None."""
     matrix = [[None for _ in range(width)] for _ in range(height)]
     return matrix
 
