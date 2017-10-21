@@ -49,6 +49,19 @@ def calculate_lbp_pattern(brightness_matrix: list(list()), x: int, y: int):
     return lbp_pattern
 
 
+def is_lbp_pattern_morph_relevant(lbp_pattern: list):
+    """ Only lpb-pattern with exact 2x 1, which are direct neigbours are relevant, e.g. [0,1,1,0,0,0,0,0]"""
+    sum_of_1s = 0
+    has_neighbours = False
+    for index in range(len(lbp_pattern)):
+        sum_of_1s += lbp_pattern[index]
+        if sum_of_1s > 2:
+            return False
+        if lbp_pattern[index] == 1 and lbp_pattern[index-1] == 1:
+            has_neighbours = True
+    return has_neighbours
+
+
 def __decide_lbp_1_or_0(pixel_brightness: float, neighbour_brightness: float):
     if neighbour_brightness >= pixel_brightness:
         return 1
