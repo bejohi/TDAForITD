@@ -3,12 +3,13 @@ from PIL import Image
 
 
 def convert_image_to_brightness_matrix(rgb_image: Image):
-    brightness_matrix = __init_2d_matrix_with_none(rgb_image.width)
-    for x in range(rgb_image.width):
-        for y in range(rgb_image.height):
+    """Converts the given image object to a 2D Matrix with the size of the image """
+    brightness_matrix = __init_2d_matrix_with_none(rgb_image.width,rgb_image.height)
+    for y in range(rgb_image.height):
+        for x in range(rgb_image.width):
             r, g, b = rgb_image.getpixel((x, y))
             brightness = calculate_brightness(r, g, b)
-            brightness_matrix[x][y] = brightness
+            brightness_matrix[y][x] = brightness
     return brightness_matrix
 
 
@@ -27,9 +28,9 @@ def calculate_brightness(r: float, g: float, b: float):
     return brightness
 
 
-def __init_2d_matrix_with_none(size:int):
+def __init_2d_matrix_with_none(width, height: int):
     """Initializes a 2d matrix with the value None"""
-    matrix = [[None for _ in range(size)] for _ in range(size)]
+    matrix = [[None for _ in range(width)] for _ in range(height)]
     return matrix
 
 
