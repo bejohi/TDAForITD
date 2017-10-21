@@ -1,6 +1,6 @@
 import unittest
 
-from lba_calculate import calculate_lbp_pattern
+from lbp_calculate import calculate_lbp_pattern
 
 
 class CalculateLbpPatternTest(unittest.TestCase):

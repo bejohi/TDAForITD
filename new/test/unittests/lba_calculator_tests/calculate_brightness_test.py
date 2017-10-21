@@ -1,6 +1,6 @@
 import unittest
 
-from lba_calculate import calculate_brightness
+from lbp_calculate import calculate_brightness
 
 
 class CalculateBrightnessTest(unittest.TestCase):

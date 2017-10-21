@@ -1,6 +1,6 @@
 import unittest
 
-from lba_calculate import convert_image_to_brightness_matrix
+from lbp_calculate import convert_image_to_brightness_matrix
 from new.test.unittests.mock_image import Image
 
 
