@@ -1,7 +1,7 @@
 import os
 
-from scripts.image_handling.image_information import ImageInfo
-from scripts.image_handling.pixel_processor import PixelProcessor
+from image_handling import ImageInfo
+from image_handling import PixelProcessor
 
 
 class TestBase:

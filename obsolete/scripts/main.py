@@ -1,6 +1,4 @@
 import os
-#for path in os.environ['PYTHONPATH'].split(os.pathsep):
-#    print(str(path))
 import matplotlib
 import matplotlib.cbook as cbook
 import matplotlib.pyplot as plt

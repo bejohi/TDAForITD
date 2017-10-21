@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.image_handling.image_matrix import ImageMatrix
+from image_handling import ImageMatrix
 
 
 class ImageMatrixTest(unittest.TestCase):

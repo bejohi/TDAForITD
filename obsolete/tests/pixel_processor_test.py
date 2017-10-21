@@ -1,6 +1,6 @@
 import unittest
 
-from tests.test_base import TestBase
+from obsolete.tests.test_base import TestBase
 
 
 class PixelProcessorTest(unittest.TestCase, TestBase):

@@ -1,7 +1,7 @@
 import unittest
 
-from scripts.image_handling.picture import Picture
-from scripts.image_handling.pixel import Pixel
+from image_handling import Picture
+from image_handling import Pixel
 
 
 class PictureUnitTest(unittest.TestCase):

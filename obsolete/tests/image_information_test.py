@@ -1,8 +1,8 @@
 import traceback
 import unittest
 
-from scripts.image_handling.image_information import ImageInfo
-from tests.test_base import TestBase
+from image_handling import ImageInfo
+from obsolete.tests.test_base import TestBase
 
 
 class ImageInfoTest(unittest.TestCase, TestBase):
