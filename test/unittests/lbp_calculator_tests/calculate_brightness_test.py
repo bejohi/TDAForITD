@@ -1,6 +1,6 @@
 import unittest
 
-from lbp_calculate import calculate_brightness
+from morphdetect.lbp_calculate import calculate_brightness
 
 
 class CalculateBrightnessTest(unittest.TestCase):

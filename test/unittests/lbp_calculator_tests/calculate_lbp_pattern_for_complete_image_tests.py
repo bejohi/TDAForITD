@@ -1,6 +1,6 @@
 import unittest
 
-from lbp_calculate import calculate_lbp_pattern_for_complete_image
+from morphdetect.lbp_calculate import calculate_lbp_pattern_for_complete_image
 
 
 class CalculateLbpPatternForCompleteImageTests(unittest.TestCase):

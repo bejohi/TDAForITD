@@ -1,8 +1,8 @@
 """
     Provide functions to create and calculate a binary skeleton with morph relevant lbp- pattern from a given image.
 """
-import lbp_calculate as lbp
-import loging as log
+import morphdetect.lbp_calculate as lbp
+import morphdetect.loging as log
 
 
 def create_morph_skeleton(image_path: str):

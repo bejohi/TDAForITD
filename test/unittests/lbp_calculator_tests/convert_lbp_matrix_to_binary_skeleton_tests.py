@@ -1,6 +1,6 @@
 import unittest
 
-from lbp_calculate import convert_lbp_matrix_to_binary_skeleton
+from morphdetect.lbp_calculate import convert_lbp_matrix_to_binary_skeleton
 
 
 class ConvertLbpMatrixToBinarySkeletonTests(unittest.TestCase):

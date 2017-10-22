@@ -1,6 +1,6 @@
 import unittest
 
-from lbp_calculate import is_lbp_pattern_morph_relevant
+from morphdetect.lbp_calculate import is_lbp_pattern_morph_relevant
 
 
 class IsLbpPatternMorphRelevantTests(unittest.TestCase):

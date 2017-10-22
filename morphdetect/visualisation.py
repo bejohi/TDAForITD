@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import loging as log
+import morphdetect.loging as log
 
 
 def visualize_2D_binary_matrix(binary_matrix: list):
