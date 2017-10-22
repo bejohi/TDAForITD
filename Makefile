@@ -6,6 +6,7 @@
 # if you have python2 and python3 installed the pip cmd might by pip3
 # otherwise only pip
 pipversion = pip3
+pythonversion = python
 
 # Installs all necessary external python libraries.
 install-requirements:
@@ -13,7 +14,7 @@ install-requirements:
 
 # Starts the application
 run:
-	python3 scripts/main.py
+	$(pythonversion) main.py
 
 # Runs all unit tests
 test:

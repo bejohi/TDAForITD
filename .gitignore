@@ -156,6 +156,9 @@ fabric.properties
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Own
 .vscode
 .idea
 .DS_Store
+log.txt
+image_scan_result.txt
