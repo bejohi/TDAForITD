@@ -70,8 +70,23 @@ def calculate_lbp_pattern_for_complete_image(brightness_matrix: list):
     return lbp_pattern_matrix
 
 
+def convert_lbp_matrix_to_binary_skeleton(lbp_matrix: list):
+    """Converts a given 2D matrix with lbp-patterns, into a 2D matrix which holds only 1s and 0s, depending on the
+    morph relevance of the pattern in each field."""
+    height = len(lbp_matrix)
+    width = len(lbp_matrix[0])
+    binary_skeleton = __init_2d_matrix_with_none(width, height)
+
+    for y in range(height):
+        for x in range(width):
+            morph_relevant = is_lbp_pattern_morph_relevant(lbp_matrix[y][x])
+            binary_skeleton[y][x] = morph_relevant
+
+    return binary_skeleton
+
+
 def is_lbp_pattern_morph_relevant(lbp_pattern: list):
-    """ Only lpb-pattern with exact 2x 1, which are direct neighbours are relevant, e.g. [0,1,1,0,0,0,0,0]"""
+    """ Only lpb-pattern with exact 2 1s, where both 1s are direct neighbours, are relevant, e.g. [0,1,1,0,0,0,0,0]."""
     sum_of_1s = 0
     has_neighbours = False
     for index in range(len(lbp_pattern)):
