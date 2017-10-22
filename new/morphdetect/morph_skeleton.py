@@ -25,11 +25,3 @@ def count_morph_relevant_pattern(morph_skeleton):
         for binary_value in row:
             sum_1s += binary_value
     return sum_1s
-
-
-if __name__ == "__main__":
-    """For test purpose only."""
-    image_path = "../../data_storage/images/example_image_davinci.png"
-    morph_skeleton = create_morph_skeleton(image_path)
-    count_morph_pattern = count_morph_relevant_pattern(morph_skeleton)
-    print(str(len(morph_skeleton) * len(morph_skeleton[0]) - count_morph_pattern) + " vs. " + str(count_morph_pattern))

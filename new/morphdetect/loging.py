@@ -6,4 +6,4 @@ def log_info(message: str):
 
 
 def log_error(message: str):
-    print(str(datetime.datetime.now()) + ": " + str(message))
+    print("ERROR: " + str(datetime.datetime.now()) + ": " + str(message))

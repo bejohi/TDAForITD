@@ -119,12 +119,8 @@ def __is_coordinates_in_lbp_calculation_range(x: int, y: int, width: int, height
     else:
         return True
 
+
 def __init_2d_matrix_with_none(width: int, height: int):
     """Initializes a 2d matrix with the value None."""
     matrix = [[None for _ in range(width)] for _ in range(height)]
     return matrix
-
-
-if __name__ == "__main__":
-    image = load_image("../../data_storage/images/example_image_davinci.png")
-    convert_image_to_brightness_matrix(image)
