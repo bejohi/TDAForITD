@@ -1,4 +1,3 @@
-import math
 from PIL import Image
 
 """
@@ -9,34 +8,18 @@ from PIL import Image
 __pixel_neighbours = [(-1, -1), (-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1)]
 
 
-def convert_image_to_brightness_matrix(rgb_image: Image):
-    """Converts the given image object to a 2D Matrix with height and width of the image """
-    brightness_matrix = __init_2d_matrix_with_none(rgb_image.width, rgb_image.height)
-    for y in range(rgb_image.height):
-        for x in range(rgb_image.width):
-            r, g, b = rgb_image.getpixel((x, y))
-            brightness = calculate_brightness(r, g, b)
-            brightness_matrix[y][x] = brightness
-    return brightness_matrix
-
-
 def load_image(image_path: str):
-    """Loads the image from the hard drive. Can raise FileNotFoundError"""
+    """
+
+    :param image_path: the path + name of the image.
+    :return: the image object, converted to a grayscale image.
+    :raises FileNotFoundError
+    """
     image = Image.open(image_path)
-    return image.convert("RGB")
+    return image.convert("LA")  # LA == grayscale
 
 
-def calculate_brightness(r: float, g: float, b: float):
-    """Uses the Ignacio Vazquez-Abrams heuristic to calculate the brightness of a single pixel. Therefor it uses the
-    rgb values """
-    r_factor = 0.299
-    g_factor = 0.587
-    b_factor = 0.114
-    brightness = math.sqrt(r_factor * r ** 2 + g_factor * g ** 2 + b_factor * b ** 2)
-    return brightness
-
-
-def calculate_lbp_pattern(brightness_matrix: list, x: int, y: int):
+def calculate_lbp_pattern(img: Image.Image, x: int, y: int):
     """Calculates the lbp pattern for a single pixel in a given pixel matrix and returns the pattern as an list,
     e.g [1,0,0,0,1,0,1,0]"""
     lbp_pattern = []
@@ -47,28 +30,24 @@ def calculate_lbp_pattern(brightness_matrix: list, x: int, y: int):
         if x_neighbour < 0 or y_neighbour < 0:
             raise IndexError("The x and y coordinates can not be directly at the image border.")
 
-        neighbour_brightness = brightness_matrix[y_neighbour][x_neighbour]
-        pixel_brightness = brightness_matrix[y][x]
+        neighbour_brightness = img.getpixel((x_neighbour, y_neighbour))
+        pixel_brightness = img.getpixel((x, y))
         lbp_pattern.append(__decide_lbp_1_or_0(pixel_brightness, neighbour_brightness))
 
     return lbp_pattern
 
 
-def calculate_lbp_pattern_for_complete_image(brightness_matrix: list):
+def calculate_lbp_pattern_for_complete_image(img: Image.Image):
     """Creates a complete new 2D Matrix out of a given brightness matrix. The new matrix contains the lbp pattern for
     every pixel, expect the once at the direct border """
-    height = len(brightness_matrix)
-    if height is 0:
-        return []
-    width = len(brightness_matrix[0])
-    lbp_pattern_matrix = __init_2d_matrix_with_none(width, height)
+    lbp_pattern_matrix = __init_2d_matrix_with_none(img.width, img.height)
 
-    for y in range(height):
-        for x in range(width):
-            if not __is_coordinates_in_lbp_calculation_range(x, y, width, height):
+    for y in range(img.height):
+        for x in range(img.width):
+            if not __is_coordinates_in_lbp_calculation_range(x, y, img.width, img.height):
                 lbp_pattern_matrix[y][x] = []  # The pixel at the direct border get a empty lbp_pattern.
                 continue
-            lbp_pattern = calculate_lbp_pattern(brightness_matrix, x, y)
+            lbp_pattern = calculate_lbp_pattern(img, x, y)
             lbp_pattern_matrix[y][x] = lbp_pattern
 
     return lbp_pattern_matrix
